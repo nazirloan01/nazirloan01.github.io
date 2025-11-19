@@ -109,7 +109,7 @@ body.dark .card{
   border:1px solid rgba(255,255,255,0.04);
 }
 
-/* Circular Profile Frame */
+/* Circular Photo Frame (perfectly fitted) */
 .profile-photo-wrapper{
   display:flex;
   align-items:center;
@@ -121,10 +121,12 @@ body.dark .card{
   height:170px;
   border-radius:50%;
   object-fit:cover;
-  border:4px solid var(--accent-2);
-  box-shadow:0 4px 12px rgba(0,0,0,0.15);
+  object-position:center;
+  border:5px solid var(--accent-2);
+  box-shadow:0 4px 12px rgba(0,0,0,0.2);
 }
 
+/* Profile body */
 .profile-body{padding:18px}
 .name{font-size:22px;font-weight:800;margin:0}
 .title{font-size:13px;color:var(--muted);margin-bottom:10px}
@@ -221,7 +223,6 @@ details summary {
   font-weight:700;
   font-size:15px;
   cursor:pointer;
-  outline:none;
 }
 details a {
   display:block;
@@ -239,11 +240,16 @@ details a {
 <header class="topbar">
   <div class="brand"><div class="logo">NL</div><h4>Dr. Nazir A. Loan</h4></div>
 
+  <!-- UPDATED FULL TOP NAV (ALL TABS CLICKABLE) -->
   <nav style="margin-left:40px;">
     <a style="margin-right:15px;font-weight:700;cursor:pointer" onclick="switchTab('bio')">Biography</a>
     <a style="margin-right:15px;font-weight:700;cursor:pointer" onclick="switchTab('pub')">Publications</a>
     <a style="margin-right:15px;font-weight:700;cursor:pointer" onclick="switchTab('research')">Research</a>
     <a style="margin-right:15px;font-weight:700;cursor:pointer" onclick="switchTab('teaching')">Teaching</a>
+    <a style="margin-right:15px;font-weight:700;cursor:pointer" onclick="switchTab('projects')">Projects</a>
+    <a style="margin-right:15px;font-weight:700;cursor:pointer" onclick="switchTab('materials')">Materials</a>
+    <a style="margin-right:15px;font-weight:700;cursor:pointer" onclick="switchTab('awards')">Awards</a>
+    <a style="margin-right:15px;font-weight:700;cursor:pointer" onclick="switchTab('contact')">Contact</a>
   </nav>
 
   <div style="margin-left:auto;display:flex;gap:12px;">
@@ -289,7 +295,7 @@ details a {
     </div>
   </aside>
 
-  <!-- RIGHT: CONTENT -->
+  <!-- RIGHT CONTENT -->
   <section>
     <div class="tabs-top">
 
@@ -299,7 +305,7 @@ details a {
       <button class="tab" data-tab="teaching" onclick="switchTab('teaching')">Teaching</button>
       <button class="tab" data-tab="projects" onclick="switchTab('projects')">Projects & Codes</button>
       <button class="tab" data-tab="materials" onclick="switchTab('materials')">Materials</button>
-      <button class="tab" data-tab="awards" onclickde="switchTab('awards')">Awards</button>
+      <button class="tab" data-tab="awards" onclick="switchTab('awards')">Awards</button>
       <button class="tab" data-tab="contact" onclick="switchTab('contact')">Contact</button>
 
     </div>
@@ -310,56 +316,50 @@ details a {
       <div id="bio" class="section active">
         <div class="ribbon"></div>
         <h2>Biography</h2>
-        <p>Short academic biography (add content here).</p>
+        <p>Short biography here.</p>
       </div>
 
       <!-- PUBLICATIONS -->
       <div id="pub" class="section">
         <div class="ribbon"></div>
         <h2>Publications</h2>
-        <p>Publications list here.</p>
+        <p>Your publications here.</p>
       </div>
 
       <!-- RESEARCH -->
       <div id="research" class="section">
         <div class="ribbon"></div>
         <h2>Research Interests</h2>
-        <p>Multimedia Security, Encryption, Embedded Systems.</p>
+        <p>Multimedia Security, Embedded Systems, Encryption.</p>
       </div>
 
       <!-- TEACHING -->
       <div id="teaching" class="section">
         <div class="ribbon"></div>
         <h2>Teaching Interests</h2>
-        <p>Microcontrollers, Embedded Systems, Signals & Systems.</p>
+        <p>Embedded Systems, Microcontrollers, Digital Electronics.</p>
       </div>
 
       <!-- PROJECTS -->
       <div id="projects" class="section">
         <div class="ribbon"></div>
         <h2>Projects & Codes</h2>
-        <p>Click a category to download project PDFs.</p>
 
         <details>
           <summary>IoT Projects</summary>
-          <a href="project_iot_home_automation.pdf">Home Automation</a>
-          <a href="project_iot_health_monitor.pdf">Health Monitor</a>
+          <a href="project1.pdf">Smart Home Automation</a>
+          <a href="project2.pdf">IoT Health Monitoring</a>
         </details>
 
         <details>
           <summary>Multimedia Security Projects</summary>
-          <a href="project_image_watermarking.pdf">Image Watermarking</a>
-          <a href="project_deepfake_detection.pdf">Deepfake Detection</a>
+          <a href="project3.pdf">Image Watermarking</a>
+          <a href="project4.pdf">Deepfake Detection</a>
         </details>
 
         <details>
-          <summary>Embedded System Projects</summary>
-          <a href="project_embedded_heart_monitor.pdf">Heart Monitor</a>
-        </details>
-
-        <details>
-          <summary>Signal Processing Projects</summary>
-          <a href="project_signal_processing.pdf">Signal Processing Toolkit</a>
+          <summary>Embedded Projects</summary>
+          <a href="project5.pdf">Heartbeat Monitor</a>
         </details>
 
       </div>
@@ -368,54 +368,42 @@ details a {
       <div id="materials" class="section">
         <div class="ribbon"></div>
         <h2>Materials</h2>
-        <p>Click a semester to download PDFs.</p>
 
         <details>
           <summary>Semester 1</summary>
+          <a href="sem1_notes.pdf">Notes</a>
           <a href="sem1_unit1.pdf">Unit 1</a>
-          <a href="sem1_unit2.pdf">Unit 2</a>
-          <a href="sem1_notes.pdf">Complete Notes</a>
         </details>
 
         <details>
           <summary>Semester 2</summary>
-          <a href="sem2_unit1.pdf">Unit 1</a>
-          <a href="sem2_unit2.pdf">Unit 2</a>
+          <a href="sem2_notes.pdf">Notes</a>
         </details>
 
         <details>
           <summary>Semester 3</summary>
-          <a href="sem3_notes.pdf">Lecture Notes</a>
-        </details>
-
-        <details>
-          <summary>Semester 4</summary>
-          <a href="sem4_notes.pdf">Lecture Notes</a>
+          <a href="sem3_notes.pdf">Notes</a>
         </details>
 
         <details>
           <summary>Lab Manuals</summary>
-          <a href="lab_manuals.pdf">Complete Lab Manual</a>
+          <a href="lab.pdf">Lab Manual</a>
         </details>
 
-        <details>
-          <summary>Assignments</summary>
-          <a href="assignments.pdf">Assignments</a>
-        </details>
       </div>
 
       <!-- AWARDS -->
       <div id="awards" class="section">
         <div class="ribbon"></div>
         <h2>Awards</h2>
-        <p>Awards and recognitions.</p>
+        <p>Your awards here.</p>
       </div>
 
       <!-- CONTACT -->
       <div id="contact" class="section">
         <div class="ribbon"></div>
         <h2>Contact</h2>
-        <p>Email: <strong>nazirloan786@gmail.com</strong></p>
+        <p><strong>Email:</strong> nazirloan786@gmail.com</p>
       </div>
 
     </div>
@@ -430,7 +418,7 @@ details a {
 <script>
 document.getElementById("year").textContent = new Date().getFullYear();
 
-/* Tab Switching */
+/* Tab Switch */
 function switchTab(tab){
   document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
   document.querySelector(`.tab[data-tab="${tab}"]`).classList.add("active");
@@ -449,4 +437,3 @@ toggle.addEventListener("click", () => {
 
 </body>
 </html>
-
