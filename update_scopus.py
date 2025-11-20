@@ -1,11 +1,13 @@
 import json
 import requests
 import re
+import os
 
 SCOPUS_ID = "56997291000"
 
 def get_scopus_metrics(api_key):
-    url = f"https://api.elsevier.com/content/author/author_id/{SCOPUS_ID}?view=ENHANCED"
+    # BASIC view (publicly accessible)
+    url = f"https://api.elsevier.com/content/author/author_id/{SCOPUS_ID}?view=BASIC"
     headers = {"X-ELS-APIKey": api_key}
 
     r = requests.get(url, headers=headers)
@@ -17,10 +19,11 @@ def get_scopus_metrics(api_key):
     data = r.json()
     author = data["author-retrieval-response"][0]
 
+    # BASIC view provides h-index and citation-count
     h_index = author.get("h-index", "N/A")
     citations = author["coredata"].get("citation-count", "N/A")
 
-    # Scopus does not provide i10-index
+    # Public API does not support i10-index
     i10_index = "N/A"
 
     return citations, h_index, i10_index
@@ -39,8 +42,6 @@ def update_html(citations, h_index, i10_index):
 
 
 def main():
-    # Load API key from environment variable
-    import os
     api_key = os.getenv("SCOPUS_API_KEY")
 
     if not api_key:
