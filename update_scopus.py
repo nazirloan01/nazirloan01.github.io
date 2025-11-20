@@ -1,13 +1,12 @@
 import json
 import requests
-import re
 import os
 
 SCOPUS_ID = "56997291000"
 
 def get_scopus_metrics(api_key):
-    # BASIC view (publicly accessible)
-    url = f"https://api.elsevier.com/content/author/author_id/{SCOPUS_ID}?view=BASIC"
+    # Working view for public API access
+    url = f"https://api.elsevier.com/content/author/author_id/{SCOPUS_ID}?view=STANDARD"
     headers = {"X-ELS-APIKey": api_key}
 
     r = requests.get(url, headers=headers)
@@ -19,11 +18,11 @@ def get_scopus_metrics(api_key):
     data = r.json()
     author = data["author-retrieval-response"][0]
 
-    # BASIC view provides h-index and citation-count
+    # STANDARD view includes these keys
     h_index = author.get("h-index", "N/A")
     citations = author["coredata"].get("citation-count", "N/A")
 
-    # Public API does not support i10-index
+    # Scopus API does not provide i10-index
     i10_index = "N/A"
 
     return citations, h_index, i10_index
