@@ -298,10 +298,37 @@ body.dark #darkToggle { border-color:rgba(255,255,255,0.3); }
   <!-- RIGHT CONTENT -->
   <section class="content card">
 
-    <div id="bio" class="section active">
-      <h2>Biography</h2>
-      <p>Add your biography here.</p>
-    </div>
+<div id="bio" class="section active">
+  <h2>Biography</h2>
+  <p>Add your biography here.</p>
+
+  <!-- Embedded CV Viewer -->
+  <div style="margin-top:20px; border:1px solid #ccc; border-radius:10px; overflow:hidden;">
+    <iframe 
+      src="CV @Academic position with complete list of publications.pdf" 
+      style="width:100%; height:600px; border:none;">
+    </iframe>
+  </div>
+
+  <!-- Optional Download Button -->
+  <a 
+    href="CV @Academic position with complete list of publications.pdf" 
+    download
+    style="
+      display:inline-block;
+      margin-top:15px;
+      padding:10px 18px;
+      background:var(--accent-2);
+      color:white;
+      font-weight:600;
+      border-radius:8px;
+      text-decoration:none;
+    "
+  >
+    📄 Download Full CV
+  </a>
+</div>
+
         <div id="education" class="section">
       <h2>Education</h2>
       <p>Education here.</p>
